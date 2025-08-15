@@ -2,6 +2,8 @@
 
 > **Morph Consumer Buildathon Submission** | Track: PayFi & Consumer Finance
 
+[![Escrowzy Demo](/public/images/escrowzy-demo.png)](https://youtu.be/_2QjJgxqhHY)
+
 ## 🚀 Executive Summary
 
 **Escrowzy** is the world's first gamified DeFi platform that transforms
@@ -24,11 +26,6 @@ trust issues in P2P trading.
   trades
 - **Frictionless Onboarding**: Email login via Thirdweb - no seed phrases
   required
-
-### 📺 Demo & Live Platform
-
-- 🌐 **[Try Live Platform](https://escrowzy-morph.vercel.app/)**
-- 💻 **[GitHub Repository](https://github.com/syntaxsurge/escrowzy-morph)**
 
 ---
 
@@ -277,6 +274,17 @@ escrowzy-morph/
 ├── public/           # Static assets
 └── config/           # Blockchain configuration
 ```
+
+---
+
+## Project Resources
+
+- 🌐 **Live Platform**:
+  [escrowzy-morph.vercel.app](https://escrowzy-morph.vercel.app/)
+- 📹 **Demo Video**:
+  [youtu.be/_2QjJgxqhHY](https://youtu.be/_2QjJgxqhHY)
+- 💻 **GitHub**:
+  [github.com/syntaxsurge/escrowzy-morph](https://github.com/syntaxsurge/escrowzy-morph)
 
 ---
 
