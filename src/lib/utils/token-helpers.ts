@@ -241,20 +241,34 @@ export function calculateEscrowAmounts(
   feeAmount: { contractAmount: bigint; transactionValue: bigint }
   totalAmount: { contractAmount: bigint; transactionValue: bigint }
 } {
-  // Calculate fee as a string
-  const amountAsNumber = parseFloat(amount)
-  const feeAsNumber = amountAsNumber * feePercentage
-  const totalAsNumber = amountAsNumber + feeAsNumber
-
-  // Get amounts for base, fee, and total
+  // Get base amount in BigInt first
   const base = getEscrowAmounts(amount, chainId)
-  const fee = getEscrowAmounts(feeAsNumber.toString(), chainId)
-  const total = getEscrowAmounts(totalAsNumber.toString(), chainId)
+
+  // Calculate fee using BigInt math to avoid floating point errors
+  // Convert percentage to basis points (e.g., 0.025 = 250 basis points out of 10000)
+  const basisPoints = BigInt(Math.round(feePercentage * 10000))
+  const BASIS_POINTS_DIVISOR = 10000n
+
+  // Calculate fee amounts using BigInt arithmetic
+  const feeContractAmount =
+    (base.contractAmount * basisPoints) / BASIS_POINTS_DIVISOR
+  const feeTransactionValue =
+    (base.transactionValue * basisPoints) / BASIS_POINTS_DIVISOR
+
+  // Calculate total amounts
+  const totalContractAmount = base.contractAmount + feeContractAmount
+  const totalTransactionValue = base.transactionValue + feeTransactionValue
 
   return {
     baseAmount: base,
-    feeAmount: fee,
-    totalAmount: total
+    feeAmount: {
+      contractAmount: feeContractAmount,
+      transactionValue: feeTransactionValue
+    },
+    totalAmount: {
+      contractAmount: totalContractAmount,
+      transactionValue: totalTransactionValue
+    }
   }
 }
 

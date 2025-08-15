@@ -110,7 +110,8 @@ forge test
 
 ### Alternative Deployment for Unsupported Chains
 
-If Foundry deployment fails with "Chain not supported" error (e.g., for Morph with chain ID 2810/2818), use the Node.js deployment script:
+If Foundry deployment fails with "Chain not supported" error (e.g., for Morph
+with chain ID 2810/2818), use the Node.js deployment script:
 
 ```bash
 # IMPORTANT: Navigate to the project root directory first
@@ -126,7 +127,8 @@ npx tsx scripts/deploy-morph.ts morphTestnet
 npx tsx scripts/deploy-morph.ts morphMainnet
 ```
 
-This script uses ethers.js to bypass Foundry's chain validation and successfully deploys to custom chains that Foundry doesn't natively support.
+This script uses ethers.js to bypass Foundry's chain validation and successfully
+deploys to custom chains that Foundry doesn't natively support.
 
 ### Automatic Contract Linking
 
